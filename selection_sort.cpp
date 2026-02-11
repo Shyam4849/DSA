@@ -17,7 +17,7 @@ void selection_sort(int arr[], int n) // Time complexity -> O(n^2) for all cases
     }
 }
 
-void bubble_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/average cases O(N) for best case
+void bubble_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/average cases O(n) for best case
 {
     for (int i = n - 1; i >= 0; i--)
     {
@@ -37,6 +37,26 @@ void bubble_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/averag
     }
 }
 
+void insertion_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/average case, O(n) for best case
+{
+    cout << "i loop enters" << endl;
+    for (int i = 1; i < n; i++)
+    {
+        cout << "j Loop enters" << endl;
+        int key = arr[i];
+        for (int j = i - 1; j >= 0; j--)
+        {
+            if (arr[j] > key)
+            {
+                cout << "swaping" << endl;
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -50,7 +70,8 @@ int main()
     }
 
     // selection_sort(arr, n);
-    bubble_sort(arr, n);
+    // bubble_sort(arr, n);
+    insertion_sort(arr, n);
 
     for (int i = 0; i < n; i++)
     {
