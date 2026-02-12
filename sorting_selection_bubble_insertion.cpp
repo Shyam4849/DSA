@@ -39,21 +39,23 @@ void bubble_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/averag
 
 void insertion_sort(int arr[], int n) // Time complexity -> O(n^2) for worst/average case, O(n) for best case
 {
-    cout << "i loop enters" << endl;
+    // cout << "i loop enters" << endl;
     for (int i = 1; i < n; i++)
     {
-        cout << "j Loop enters" << endl;
+        // cout << "j Loop enters" << endl;
         int key = arr[i];
-        for (int j = i - 1; j >= 0; j--)
+        int j;
+        for (j = i - 1; j >= 0; j--)
         {
             if (arr[j] > key)
             {
-                cout << "swaping" << endl;
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+                // cout << "swaping" << endl;
+                arr[j + 1] = arr[j];
             }
+            else
+                break;
         }
+        arr[j + 1] = key;
     }
 }
 
