@@ -3,6 +3,8 @@ using namespace std;
 
 bool containsDuplicate(vector<int> &nums)
 {
+    // Better Approach
+    /*
     unordered_map<int, int> mpp;
     int n = nums.size();
 
@@ -16,11 +18,24 @@ bool containsDuplicate(vector<int> &nums)
         }
     }
     return false;
+    */
+
+    // Optimal Approach
+    sort(nums.begin(), nums.end());
+
+    for (int i = 0; i < nums.size() - 1; i++)
+    {
+        if (nums[i] == nums[i + 1])
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 int main()
 {
-    vector<int> nums = {9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 9, 0};
+    vector<int> nums = {1, 2, 3, 4};
 
     bool isDuplicate = containsDuplicate(nums);
     if (isDuplicate)
