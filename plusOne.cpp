@@ -4,40 +4,40 @@ using namespace std;
 vector<int> plusOne(vector<int> &digits)
 {
 
-    vector<int> ans(digits);
+    vector<int> result(digits);
 
-    int n = ans.size();
+    int n = result.size();
     int carry;
 
     int i = n - 1;
 
     while (i >= 0)
     {
-        if (ans[i] < 9)
+        if (result[i] < 9)
         {
-            ans[i] += 1;
+            result[i] += 1;
             carry = 0;
             break;
         }
 
-        if (ans[i] == 9)
+        if (result[i] == 9)
         {
-            ans[i] = 0;
+            result[i] = 0;
             carry = 1;
         }
         i--;
     }
     if (carry == 1)
     {
-        ans.insert(ans.begin(), carry);
+        result.insert(result.begin(), carry);
     }
-    return ans;
+    return result;
 }
 
 int main()
 {
 
-    vector<int> digits = {1, 2, 3};
+    vector<int> digits = {9, 9, 9, 9, 9, 9, 9, 9, 0, 0, 0, 9, 0};
 
     vector<int> result = plusOne(digits);
 
