@@ -8,19 +8,27 @@ bool isHappy(int n)
     if (n == 4)
         return false;
 
-    int sum = 0;
+    // int sum = 0;
 
-    for (int i = n; i != 0; i = i / 10)
+    // for (int i = n; i != 0; i = i / 10)
+    // {
+    //     sum = sum + pow((i % 10), 2);
+    //     // cout << "working" << endl;
+    // }
+
+    int sum = 0;
+    while (n > 0)
     {
-        sum = sum + pow((i % 10), 2);
-        // cout << "working" << endl;
+        int powOfLastDigit = pow((n % 10), 2);
+        sum = sum + powOfLastDigit;
+        n = n / 10;
     }
     return isHappy(sum);
 }
 
 int main()
 {
-    int n = 2;
+    int n = 19;
 
     cout << isHappy(n);
 }
