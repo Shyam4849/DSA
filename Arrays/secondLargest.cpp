@@ -1,45 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/*
-int secondLargest(vector<int> arr)
+int secondLargest(vector<int> &nums)
 {
-    int large = INT_MIN, secondLarge = INT_MIN;
-    int i;
+    // Brute Force
+    /*
+    sort(nums.begin(), nums.end());
 
-    for (int i = 0; i < arr.size(); i++)
+    return nums[nums.size() - 2];
+    */
+
+    // Better Approach
+    /*
+    int large = INT_MIN, secondLarge = INT_MIN;
+
+    for (int i = 0; i < nums.size(); i++)
     {
-        large = max(large, arr[i]);
+        large = max(large, nums[i]);
     }
 
-    for (i = 0; i < arr.size(); i++)
+    for (int i = 0; i < nums.size(); i++)
     {
-        if (arr[i] > secondLarge && arr[i] != large)
-            secondLarge = arr[i];
+        if (nums[i] > secondLarge && nums[i] != large)
+        {
+            secondLarge = nums[i];
+        }
     }
     return secondLarge;
-}
-*/
+    */
 
-int secondLargest(vector<int> arr)
-{
+    // Optimal Approach
     int large = INT_MIN, secondLarge = INT_MIN;
-
-    for (int i = 0; i < arr.size(); i++)
+    // 5,1,2
+    for (int i = 0; i < nums.size(); i++)
     {
-        if (arr[i] > large)
+        if (nums[i] > large)
         {
             secondLarge = large;
-            large = arr[i];
+            large = nums[i];
         }
-        else if (arr[i] > secondLarge && arr[i] != large)
-            secondLarge = arr[i];
+
+        if (nums[i] > secondLarge && nums[i] != large)
+        {
+            secondLarge = nums[i];
+        }
     }
     return secondLarge;
 }
 
 int main()
 {
-    vector<int> arr = {3, 2, 1, 6, 0, 7};
-    cout << secondLargest(arr);
+    vector<int> nums = {5, 1, 2};
+
+    cout << secondLargest(nums);
 }
