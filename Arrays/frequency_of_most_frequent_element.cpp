@@ -3,6 +3,7 @@ using namespace std;
 
 int maxFrequency(vector<int> &nums, int k)
 {
+    // Brute Force
     sort(nums.begin(), nums.end());
     int maxFreq = 1;
 
