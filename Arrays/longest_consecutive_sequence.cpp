@@ -4,10 +4,11 @@ using namespace std;
 int longestConsecutive(vector<int> &nums)
 {
     // Better Approach
+    /*
     int n = nums.size();
 
     if (n == 0)
-        return 0;
+    return 0;
 
     sort(nums.begin(), nums.end());
     // 0 0 1 2 3 4 5 6 7 8
@@ -17,20 +18,44 @@ int longestConsecutive(vector<int> &nums)
     {
         // for (int j = 1; j < n; j++)
         // {
-        //     if (nums[j] == nums[i] + 1)
-        //         count++;
-        // }
+            //     if (nums[j] == nums[i] + 1)
+            //         count++;
+            // }
 
-        if (nums[i] == nums[i - 1] + 1)
+            if (nums[i] == nums[i - 1] + 1)
             count++;
-        else if (nums[i] == nums[i - 1])
+            else if (nums[i] == nums[i - 1])
             continue;
-        else
+            else
             count = 1;
 
-        largest = max(largest, count);
+            largest = max(largest, count);
+        }
+        return largest;
+        */
+
+    // Optimal Approach
+    int n = nums.size();
+    int longest = 0;
+
+    unordered_set<int> nums_set(nums.begin(), nums.end()); // storing the elements in the set
+
+    for (auto num : nums_set) // iterating in the set
+    {
+        if (nums_set.find(num - 1) == nums_set.end()) // checking for the start of the sequence
+        {
+            int current = num;
+            int count = 1;
+
+            while (nums_set.find(current + 1) != nums_set.end()) // checking if the next element is present in the set
+            {
+                current++;
+                count++;
+            }
+            longest = max(longest, count); // updating the longest
+        }
     }
-    return largest;
+    return longest;
 }
 
 int main()
