@@ -3,6 +3,8 @@ using namespace std;
 
 void setZeroes(vector<vector<int>> &matrix)
 {
+    // Brute Force
+    /*
     int r = matrix.size();    // storing the number of rows
     int c = matrix[0].size(); // storing the number of columns
 
@@ -35,6 +37,47 @@ void setZeroes(vector<vector<int>> &matrix)
         for (int i = 0; i < r; i++)
         {
             matrix[i][col] = 0;
+        }
+    }
+
+    // Printing the matrix
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    */
+
+    // Better Approach
+
+    int r = matrix.size();    // storing the number of rows
+    int c = matrix[0].size(); // storing the number of columns
+    vector<bool> row(r, false);
+    vector<bool> col(c, false);
+
+    // Getting the index of the zero
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            if (matrix[i][j] == 0)
+            {
+                row[i] = true;
+                col[j] = true;
+            }
+        }
+    }
+
+    // Replacing the elements in the row and column with zero
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            if (row[i] == true || col[j] == true)
+                matrix[i][j] = 0;
         }
     }
 
