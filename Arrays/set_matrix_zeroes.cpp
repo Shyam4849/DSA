@@ -136,7 +136,7 @@ void setZeroes(vector<vector<int>> &matrix)
         }
     }
 
-    // Replacing the row with zero
+    // Replacing the impacted row with zero
     if (rowImpacted)
     {
         for (int j = 0; j < c; j++)
@@ -145,7 +145,7 @@ void setZeroes(vector<vector<int>> &matrix)
         }
     }
 
-    // Replacing the column with zero
+    // Replacing the impacted column with zero
     if (colImpacted)
     {
         for (int i = 0; i < r; i++)
