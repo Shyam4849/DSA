@@ -74,8 +74,8 @@ vector<vector<int>> fourSum(vector<int> &nums, int target)
 
 int main()
 {
-    vector<int> nums = {1, 0, -1, 0, -2, 2};
-    int target = 0;
+    vector<int> nums = {2, 2, 2, 2, 2};
+    int target = 8;
 
     vector<vector<int>> result = fourSum(nums, target);
 
