@@ -23,6 +23,6 @@ int maxLen(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {5, -5, 0, 0, 0, 3, 4, 5};
+    vector<int> nums = {5, -5, 0, 0, 0, 3, 2, 5};
     cout << maxLen(nums);
 }
