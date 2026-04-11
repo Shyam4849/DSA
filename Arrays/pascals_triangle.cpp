@@ -21,7 +21,7 @@ vector<vector<int>> generate(int numRows)
 
 int main()
 {
-    int numRows = 6;
+    int numRows = 5;
     vector<vector<int>> result = generate(numRows);
     for (int i = 0; i < result.size(); i++)
     {
