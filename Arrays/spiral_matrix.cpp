@@ -53,7 +53,7 @@ vector<int> spiralOrder(vector<vector<int>> &matrix)
 
 int main()
 {
-    vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {11, 12, 13, 14}};
+    vector<vector<int>> matrix = {{7, 7, 0, 7}, {4, 3, 7, 2}, {9, 8, 6, 0}, {6, 1, 3, 6}};
     vector<int> result = spiralOrder(matrix);
 
     for (int i = 0; i < result.size(); i++)
