@@ -42,10 +42,12 @@ vector<vector<int>> merge(vector<vector<int>> &intervals)
 
     for (auto interval : intervals)
     {
+        // checking for no overlap
         if (result.empty() || interval[0] > result.back()[1])
         {
             result.push_back(interval);
         }
+        // if overlap then merge intervals
         else
         {
             result.back()[1] = max(result.back()[1], interval[1]);
