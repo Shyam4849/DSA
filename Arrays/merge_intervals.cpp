@@ -4,6 +4,7 @@ using namespace std;
 vector<vector<int>> merge(vector<vector<int>> &intervals)
 {
     // Brute Force
+    /*
     int n = intervals.size();
     vector<vector<int>> result;
     sort(intervals.begin(), intervals.end());
@@ -30,6 +31,25 @@ vector<vector<int>> merge(vector<vector<int>> &intervals)
             }
         }
         result.push_back({start, end});
+    }
+    return result;
+    */
+
+    // Optimal Approach
+    int n = intervals.size();
+    vector<vector<int>> result;
+    sort(intervals.begin(), intervals.end());
+
+    for (auto interval : intervals)
+    {
+        if (result.empty() || interval[0] > result.back()[1])
+        {
+            result.push_back(interval);
+        }
+        else
+        {
+            result.back()[1] = max(result.back()[1], interval[1]);
+        }
     }
     return result;
 }
