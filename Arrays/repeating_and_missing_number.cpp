@@ -10,6 +10,7 @@ vector<int> missingAndRepeatingNumber(vector<int> nums)
     /*
     for (int i = 1; i <= n; i++)
     {
+        // Updating the count
         int count = 0;
         for (int j = 0; j < n; j++)
         {
@@ -17,24 +18,29 @@ vector<int> missingAndRepeatingNumber(vector<int> nums)
             count++;
         }
 
+        // Finding the repeating and missing element
         if (count == 2)
         repeating = i;
         else if (count == 0)
         missing = i;
 
+        // if found, break the loop
         if (repeating != -1 && missing != -1)
         break;
     }
     */
 
     // Better Approach
+    // Initializing a hash map
     int hash[n + 1] = {0};
 
+    // Updating the hash map
     for (int i = 0; i < n; i++)
     {
         hash[nums[i]]++;
     }
 
+    // Finding repeating and missing elements
     for (int i = 0; i <= n; i++)
     {
         if (hash[i] == 2)
@@ -42,6 +48,7 @@ vector<int> missingAndRepeatingNumber(vector<int> nums)
         else if (hash[i] == 0)
             missing = i;
 
+        // if found, break the loop
         if (repeating != -1 && missing != -1)
             break;
     }
